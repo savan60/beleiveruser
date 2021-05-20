@@ -49,11 +49,10 @@ class _AuthScreenState extends State<AuthScreen> {
           'email': email,
           'phone number': phonenumber,
         });
-
-        setState(() {
-          _isLoading = false;
-        });
       }
+      setState(() {
+        _isLoading = false;
+      });
     } on PlatformException catch (error) {
       var message = 'An error occured, please check your credentials!';
 
@@ -78,11 +77,6 @@ class _AuthScreenState extends State<AuthScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-      ),
-      body: AuthForm(_submitAuthForm, _isLoading),
-    );
+    return AuthForm(_submitAuthForm, _isLoading);
   }
 }

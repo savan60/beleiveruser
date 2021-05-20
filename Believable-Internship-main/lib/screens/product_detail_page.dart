@@ -138,45 +138,130 @@ class _ProductDetailPageState extends State<ProductDetailPage>
   _buildProductImagesWidgets() {
     TabController imagesController = TabController(length: 3, vsync: this);
 
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Container(
-        height: 380.0,
-        child: Center(
-          child: DefaultTabController(
-            length: 3,
-            child: Stack(
-              children: <Widget>[
-                TabBarView(
-                  controller: imagesController,
+    return Stack(
+      children: [
+        // Positioned(
+        //   top: 125,
+        //   right: 10,
+        //   child: Container(
+        //     decoration: BoxDecoration(
+        //         color: Colors.white,
+        //         borderRadius: BorderRadius.circular(50),
+        //         boxShadow: [
+        //           BoxShadow(
+        //             color: Colors.black.withOpacity(.3),
+        //             spreadRadius: 1,
+        //             blurRadius: 2,
+        //             offset: Offset(0, 1),
+        //           )
+        //         ]),
+        //     width: 50,
+        //     height: 50,
+        //     child: Image.asset("assets/images/Icon awesome-share.png"),
+        //   ),
+        // ),
+        // Positioned(
+        //   top: 60,
+        //   right: 10,
+        //   child: Container(
+        //     decoration: BoxDecoration(
+        //         color: Colors.white,
+        //         borderRadius: BorderRadius.circular(50),
+        //         boxShadow: [
+        //           BoxShadow(
+        //             color: Colors.black.withOpacity(.3),
+        //             spreadRadius: 1,
+        //             blurRadius: 2,
+        //             offset: Offset(0, 1),
+        //           )
+        //         ]),
+        //     width: 50,
+        //     height: 50,
+        //     child: Image.asset("assets/images/Icon ionic-ios-heart.png"),
+        //   ),
+        // ),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Container(
+            height: 380.0,
+            width: 500,
+            child: Center(
+              child: DefaultTabController(
+                length: 3,
+                child: Stack(
                   children: <Widget>[
-                    Image.network(
-                      widget.url1
-                      // "https://assets.myntassets.com/h_240,q_90,w_180/v1/assets/images/1304671/2016/4/14/11460624898615-Hancock-Men-Shirts-8481460624898035-1_mini.jpg",
+                    TabBarView(
+                      controller: imagesController,
+                      children: <Widget>[
+                        Image.network(
+                          widget.url1
+                          // "https://assets.myntassets.com/h_240,q_90,w_180/v1/assets/images/1304671/2016/4/14/11460624898615-Hancock-Men-Shirts-8481460624898035-1_mini.jpg",
+                        ),
+                        Image.network(
+                          widget.url2,
+                          // "https://n1.sdlcdn.com/imgs/c/9/8/Lambency-Brown-Solid-Casual-Blazers-SDL781227769-1-1b660.jpg",
+                        ),
+                        Image.network(
+                          widget.url3,
+                          // "https://images-na.ssl-images-amazon.com/images/I/71O0zS0DT0L._UX342_.jpg",
+                        ),
+                      ],
                     ),
-                    Image.network(
-                      widget.url2
-                      // "https://n1.sdlcdn.com/imgs/c/9/8/Lambency-Brown-Solid-Casual-Blazers-SDL781227769-1-1b660.jpg",
-                    ),
-                    Image.network(
-                      widget.url3,
-                      // "https://images-na.ssl-images-amazon.com/images/I/71O0zS0DT0L._UX342_.jpg",
-                    ),
+                    Container(
+                      alignment: FractionalOffset(0.5, 0.95),
+                      child: TabPageSelector(
+                        controller: imagesController,
+                        selectedColor: Colors.grey,
+                        color: Colors.white,
+                      ),
+                    )
                   ],
                 ),
-                Container(
-                  alignment: FractionalOffset(0.5, 0.95),
-                  child: TabPageSelector(
-                    controller: imagesController,
-                    selectedColor: Colors.grey,
-                    color: Colors.white,
-                  ),
-                )
-              ],
+              ),
             ),
           ),
         ),
-      ),
+        Positioned(
+          top: 105,
+          right: 10,
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(.3),
+                    spreadRadius: 1,
+                    blurRadius: 2,
+                    offset: Offset(0, 1),
+                  )
+                ]),
+            width: 50,
+            height: 50,
+            child: Image.asset("assets/images/Icon awesome-share.png"),
+          ),
+        ),
+        Positioned(
+          top: 40,
+          right: 10,
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(.3),
+                    spreadRadius: 1,
+                    blurRadius: 2,
+                    offset: Offset(0, 1),
+                  )
+                ]),
+            width: 50,
+            height: 50,
+            child: Image.asset("assets/images/Icon ionic-ios-heart.png"),
+          ),
+        ),
+      ],
     );
   }
 
